@@ -1,4 +1,67 @@
 .index{
+    .banner{
+        padding-top: 50px;
+        background-image: url(../img/banner.jpg);
+        @include bg-img-set;
+        height: 800px;
+        .slogan{
+            font-size: 45px;
+            line-height: 1.8;
+            transition: all 0.3s;
+            &:hover,&:active{
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    .bg-note{
+        position: relative;
+        background-image: url(../img/note1.jpeg);
+        background-position: center;
+        background-repeat: repeat-y;
+        background-size: contain;
+        line-height: 1.8;
+        padding-top: 70px;
+        h2{
+            font-size: 40px;
+        }
+    }
+    .tape{
+        width: 200px;
+        height: 50px;
+        background-color: $font-dark;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .weapon{
+        max-width: 992px;
+        line-height: 1.8;
+        padding: 50px 0px 90px;
+        li{
+            width: 30%;
+            .img-1,.img-2,.img-3{
+                height: 300px;
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            .img-1{
+                background-image:url(../img/fight.jpg);
+            }
+            .img-2{
+                background-image:url(../img/cry.jpeg);
+            }
+            .img-3{
+                background-image:url(../img/tempo.jpg);
+            }
+            p{
+                height: 330px;
+            }
+        }
+    }
+
     .self-intro{
         padding: 120px 0px;
         .pc-img{
@@ -58,7 +121,6 @@
 
 @include w1200{
     .index {
-        
         .self-intro .pc-img{
             .img-1{
                 width: 250px;
@@ -99,12 +161,19 @@
                 height: 230px;
             }
         }
-        
+        .weapon{
+            li p{
+                height: 400px;
+            }
+        }
     }
 }
 
 @include w900{
     .index {
+        .banner .slogan,.bg-note h2{
+            font-size: 35px;
+        }
         .self-intro {
             padding: 70px 0;
             flex-wrap: wrap;
@@ -131,7 +200,20 @@
                 }
             }
         }
-        
+        .weapon{
+            flex-wrap: wrap;
+            li{
+                margin: 0 auto 75px;
+                width: 80%;
+                &:last-child{
+                    margin: 0 auto 0px;
+                }
+                p{
+                    font-size: 20px;
+                    height: auto;
+                }
+            }
+        }
     }
 }
 
@@ -149,6 +231,25 @@
     }
 }
 
+@include w520{
+    .index{
+        .banner {
+            height: 600px;
+            .slogan{
+                font-size: 24px;
+            }
+        }
+        .bg-note h2{
+            font-size: 24px;
+        }
+        .weapon li{
+            .img-1,.img-2,.img-3{
+                height: 250px;
+            }
+        }
+    }
+}
+
 @include iphone8-plus{
     .index{
         .self-intro{
@@ -162,6 +263,9 @@
             .content{
                 padding: 50px 10px;
             }
+        }
+        .weapon li p{
+            font-size: 18px;
         }
     }
 }
